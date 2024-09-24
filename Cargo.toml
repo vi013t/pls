@@ -1,0 +1,15 @@
+[package]
+name = "cd-ls"
+description = "A pretty LS-like screen for when you CD."
+license = "MIT"
+authors = ["Violet Iapalucci"]
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+colored = "2.1.0"
+devicons = "0.1.0"
+
+[[bin]]
+path = "src/main.rs"
+name = "cl"
