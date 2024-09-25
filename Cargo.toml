@@ -1,5 +1,5 @@
 [package]
-name = "cd-ls"
+name = "cd-pls"
 description = "A pretty LS-like screen for when you CD."
 license = "MIT"
 authors = ["Violet Iapalucci"]
@@ -12,4 +12,4 @@ devicons = "0.1.0"
 
 [[bin]]
 path = "src/main.rs"
-name = "cl"
+name = "pls"
