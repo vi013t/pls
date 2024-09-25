@@ -1,19 +1,19 @@
 function cd() {
-	cd $@
+	builtin cd $@
 	pls
 }
 
 function mv() {
-	mv $@
+	command mv $@
 	pls
 }
 
 function touch() {
-	touch $@
+	command touch $@
 	pls
 }
 
 function rm() {
-	rm $@
+	command rm $@
 	pls
 }
