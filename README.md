@@ -1,3 +1,9 @@
+# pls
+
+A pretty LS-like screen for when you cd.
+
+Running `pls` clears the screen and lists files and directories in the current directory, with icons and color information. 
+
 ## Setup
 
 ### Windows
