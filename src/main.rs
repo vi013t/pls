@@ -1,8 +1,15 @@
 use colored::Colorize as _;
 use std::io::Write as _;
 
+const BASH_INIT: &str = include_str!("../scripts/init.bash");
+
 fn main() {
     let command_line_arguments = <CommandLineArguments as clap::Parser>::parse();
+
+    if command_line_arguments.init {
+        println!("{BASH_INIT}");
+        return;
+    }
 
     // Print current directory
     print!("\x1B[2J\x1B[1;1H");
@@ -55,6 +62,9 @@ struct CommandLineArguments {
 
     #[arg(short = 'c', long, default_value = "#89b4fa")]
     directory_color: String,
+
+    #[arg(long)]
+    init: bool,
 }
 
 fn hex_to_rgb(hex: &str) -> Result<(u8, u8, u8), String> {
