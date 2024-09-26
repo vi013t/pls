@@ -13,7 +13,7 @@ fn main() {
 
     // Print current directory
     print!("\x1B[2J\x1B[1;1H");
-    println!("{}", format!("┌ {}:", std::env::current_dir().unwrap().display()).bold().white());
+    println!("┌ {}", format!("{}:", std::env::current_dir().unwrap().display()).bold().white());
     println!("{}", "│");
 
     // Get files
