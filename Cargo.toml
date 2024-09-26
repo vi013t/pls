@@ -3,7 +3,7 @@ name = "cd-pls"
 description = "A pretty LS-like screen for when you CD."
 license = "MIT"
 authors = ["Violet Iapalucci"]
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 
 [dependencies]
@@ -14,3 +14,8 @@ devicons = "0.1.0"
 [[bin]]
 path = "src/main.rs"
 name = "pls"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
