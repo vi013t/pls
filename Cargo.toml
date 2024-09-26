@@ -3,7 +3,7 @@ name = "cd-pls"
 description = "A pretty LS-like screen for when you CD."
 license = "MIT"
 authors = ["Violet Iapalucci"]
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 
 [dependencies]
