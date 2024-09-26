@@ -39,7 +39,7 @@ fn main() {
 
     // Print files
     for (file, path) in files {
-        let icon = devicons::icon_for_file(&devicons::File::new(&path), None);
+        let icon = devicons::icon_for_file(&devicons::File::new(&path), command_line_arguments.theme.some_devicon_theme());
         let (r, g, b) = hex_to_rgb(icon.color).unwrap();
         if command_line_arguments.show_dotfiles || !file.starts_with(".") {
             println!("│ {} {}", format!("{}", icon.icon).truecolor(r, g, b), file);
@@ -63,8 +63,26 @@ struct CommandLineArguments {
     #[arg(short = 'c', long, default_value = "#89b4fa")]
     directory_color: String,
 
+    #[arg(short, long, default_value = "dark")]
+    theme: Theme,
+
     #[arg(long)]
     init: bool,
+}
+
+#[derive(Clone, clap::ValueEnum)]
+enum Theme {
+    Dark,
+    Light,
+}
+
+impl Theme {
+    fn some_devicon_theme(&self) -> Option<devicons::Theme> {
+        Some(match self {
+            Self::Light => devicons::Theme::Light,
+            Self::Dark => devicons::Theme::Dark,
+        })
+    }
 }
 
 fn hex_to_rgb(hex: &str) -> Result<(u8, u8, u8), String> {
