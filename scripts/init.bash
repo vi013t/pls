@@ -17,3 +17,8 @@ function rm() {
 	command rm "$@"
 	pls
 }
+
+function mkdir() {
+	command mkdir "$@"
+	pls
+}
