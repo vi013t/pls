@@ -19,7 +19,7 @@ cargo install cd-pls
 Create a function in your `.bashrc` or somewhere else that's sourced:
 
 ```bash
-eval $(pls --init)
+eval "$(pls --init)"
 ```
 
 Note that this will automatically override your `cd`, `mv`, `touch`, and `rm` to use `pls`.
