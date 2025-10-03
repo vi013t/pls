@@ -1,6 +1,9 @@
 use colored::Colorize as _;
 use std::io::Write as _;
 
+#[cfg(windows)]
+use std::os::windows::fs::MetadataExt as _;
+
 const BASH_INIT: &str = include_str!("../scripts/init.bash");
 
 fn main() {
@@ -41,7 +44,7 @@ fn main() {
     for (file, path) in files {
         let icon = devicons::icon_for_file(&devicons::File::new(&path), command_line_arguments.theme.some_devicon_theme());
         let (r, g, b) = hex_to_rgb(icon.color).unwrap();
-        if command_line_arguments.show_dotfiles || !file.starts_with(".") {
+        if command_line_arguments.show_dotfiles || !is_hidden(&path, &file) {
             println!("│ {} {}", format!("{}", icon.icon).truecolor(r, g, b), file);
         }
     }
@@ -53,6 +56,17 @@ fn main() {
     } else {
         println!("│");
     };
+}
+
+fn is_hidden(path: &std::path::PathBuf, file: &str) -> bool {
+    if cfg!(windows) {
+        const FILE_ATTRIBUTE_HIDDEN: u32 = 0x00000002;
+        if path.metadata().unwrap().file_attributes() & FILE_ATTRIBUTE_HIDDEN != 0 {
+            return true;
+        }
+    }
+
+    return file.starts_with(".");
 }
 
 #[derive(clap::Parser)]
