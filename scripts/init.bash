@@ -1,24 +1,19 @@
 function cd() {
-	builtin cd "$@"
-	pls
+	builtin cd "$@" && clear && pls
 }
 
 function mv() {
-	command mv "$@"
-	pls
+	command mv "$@" && clear && pls
 }
 
 function touch() {
-	command touch "$@"
-	pls
+	command touch "$@" && clear && pls
 }
 
 function rm() {
-	command rm "$@"
-	pls
+	command rm "$@" && clear && pls
 }
 
 function mkdir() {
-	command mkdir "$@"
-	pls
+	command mkdir "$@" && clear && pls
 }
