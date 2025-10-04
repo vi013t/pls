@@ -1,16 +1,16 @@
 [package]
 name = "cd-pls"
-description = "A pretty LS-like screen for when you CD."
+description = "A pretty ls-like command for listing files."
 license = "MIT"
 authors = ["Violet Iapalucci"]
-version = "0.1.10"
+version = "0.1.11"
 edition = "2021"
 
 [dependencies]
 anyhow = "1.0.100"
 clap = { version = "4.5.18", features = ["derive"] }
-colored = "2.1.0"
-devicons = "0.1.0"
+colored = "3.0.0"
+devicons = "0.6.12"
 globset = "0.4.16"
 serde = { version = "1.0.228", features = ["derive"] }
 serde-inline-default = "1.0.0"

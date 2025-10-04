@@ -4,19 +4,25 @@ A pretty LS-like screen for when you cd.
 
 ![demo](./docs/demo.gif)
 
-Running `pls` clears the screen and lists files and directories in the current directory, with icons and color information. 
+Running `pls` lists files and directories in the current directory, with icons and color information. 
 
-## Installation & Setup
+## Installation
 
-First, install `pls`:
+`pls` can be installed through `cargo`:
 
 ```bash
 cargo install cd-pls
 ```
 
-### Unix
+## Usage
 
-Create a function in your `.bashrc` or somewhere else that's sourced:
+`pls` as a standalone command acts very similar to `ls`:
+
+```bash
+pls <DIR>
+```
+
+To have `pls` automatically clear the screen and rerun upon directory changes, add the following to your `.bashrc` or somewhere else that's sourced:
 
 ```bash
 eval "$(pls --init)"

@@ -49,7 +49,7 @@ fn main() -> anyhow::Result<()> {
 
     // Print files
     for (file, path) in files {
-        let icon = devicons::icon_for_file(&devicons::File::new(&path), command_line_arguments.theme.some_devicon_theme());
+        let icon = devicons::icon_for_file(&path, &command_line_arguments.theme.some_devicon_theme());
         let (r, g, b) = hex_to_rgb(icon.color).unwrap();
         if config.show(&path) {
             println!("│ {} {}", format!("{}", icon.icon).truecolor(r, g, b), file);
